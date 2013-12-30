@@ -1,0 +1,10 @@
+{
+    "name": "Simple_Blog",
+    "version": "1.0.0",
+    "description" : "A simple blog with backbone.js",
+    "dependencies" : {
+	"express": "latest",
+	"jade": "latest"
+    }
+    
+}
