@@ -1,0 +1,3 @@
+var Navbar = Backbone.View.extend({
+    
+});

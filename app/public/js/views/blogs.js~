@@ -1,0 +1,50 @@
+var app = app || {};
+
+app.BlogListView = Backbone.View.extend({
+    el: '#blog-list-container',
+
+    events: {
+
+    },
+    
+
+    renderBlog: function(item) {
+	var blogView = new app.BlogShortView({
+	    model: item
+	});
+
+	$('#blog-list-container').append(blogView.render().el);
+    },
+
+    render: function() {
+	this.collection.each(function(item) {
+	    this.renderBlog(item);
+	}, this);
+    },
+
+
+    initialize: function () {
+	this.collection = new app.BlogList();
+	this.collection.fetch({reset: true});
+
+	this.render();
+	
+	this.listenTo(this.collection, "add", this.renderBlog);
+	this.listenTo(this.collection, "reset", this.render);
+    }
+});
+
+app.BlogShortView = Backbone.View.extend({
+    tagName: 'div',
+
+    template: _.template($('#blog-short-template').html()),
+
+    events: {
+    },
+
+    render: function () {
+	this.$el.html(this.template(this.model.toJSON()));
+	return this;
+    }
+});
+

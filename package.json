@@ -4,7 +4,8 @@
     "description" : "A simple blog with backbone.js",
     "dependencies" : {
 	"express": "latest",
-	"jade": "latest"
+	"baucis": "latest",
+	"connect": "latest"
     }
     
 }
