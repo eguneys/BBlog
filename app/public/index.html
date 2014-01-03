@@ -2,7 +2,9 @@
   <head>
     <title>Simple Blog</title>
 
-    
+    <meta http-equiv="Content-Type" content="text/html; charset=windows-1254">
+    <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-9">
+    <meta http_equiv="Content-Language" content="tr">
     <link href="/bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="/bower_components/font-awesome/css/font-awesome.min.css" rel="stylesheet">
   </head>
@@ -97,7 +99,7 @@
 
     <script type='text/template' id='blog-short-template'>
 	  <h1><%= title %></h1>
-	  <p class="lead"> by <a href="#"> <%= author %> </a></p>
+	  <p class="lead"> by <a href="#"> <%= author.name %> </a></p>
 	  <hr>
 	  <p> <i class="fa fa-clock-o"></i> Posted </p>
 	  <hr>
@@ -122,11 +124,9 @@
       <script src="/bower_components/backbone.paginator/dist/backbone.paginator.js"></script>
 
       <script src="/js/models/blog.js"></script>
-      <script src="/js/collections/blog.js"></script>
-      <script src="/js/views/blogs.js"></script>
-      <script src="/js/views/home.js"></script>
-      <script src="/js/views/app.js"></script>
-      <script src="/js/routers/router.js"></script>
+      <script src="/js/collections/BlogList.js"></script>
+      <script src="/js/views/nav.js"></script>
+      <script src="/js/views/main.js"></script>
       <script src="/js/app.js"></script>
   </body>
   

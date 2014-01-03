@@ -1,6 +1,0 @@
-
-app.BlogList = Backbone.Collection.extend({
-    model: app.Blog
-});
-
-app.Blogs = new app.BlogList();

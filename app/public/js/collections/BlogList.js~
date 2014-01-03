@@ -1,0 +1,3 @@
+var BlogList = Backbone.Collection.extend({
+    
+});
