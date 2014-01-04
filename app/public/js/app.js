@@ -1,11 +1,18 @@
 var NavigationRoutes = {
     "Home": {
-	route: "",
+	link: "",
+	route: "(page/:pageno)",
 	view: Home
     },
     "About": {
+	link: "About",
 	route: "About",
 	view: About
+    },
+    "blog": {
+	route: "blog/:id",
+	view: BlogView,
+	hide: true
     },
     "default": {
 	route: "*default",
@@ -24,10 +31,6 @@ var AppRouter = new (Backbone.Router.extend({
 	    if (key != "default")
 		this.route(NavigationRoutes[key].route, key);
 	}
-    },
-    
-    routes: {
-	
     }
 }))();
     

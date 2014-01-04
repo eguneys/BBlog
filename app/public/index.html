@@ -52,15 +52,15 @@
 
 	  
 	  <ul class="pager">
-	    <li class="previous"><a href="#">&larr; Older</a></li>
-	    <li class="next"><a href="#">Newer &rarr;</a></li>
+	    <li class="previous <%= hasPrevious?'':'disabled' %>"><a href="">&larr; Older</a></li>
+	    <li class="next"><a href="">Newer &rarr;</a></li>
 	  </ul>
 	  
 	  <div id="blog-list-container"></div>
 	  
 	  <ul class="pager">
-	    <li class="previous"><a href="#">&larr; Older</a></li>
-	    <li class="next"><a href="#">Newer &rarr;</a></li>
+	    <li class="previous"><a href="">&larr; Older</a></li>
+	    <li class="next"><a href="">Newer &rarr;</a></li>
 	  </ul>
 	</div>
 
@@ -104,7 +104,7 @@
 	  <p> <i class="fa fa-clock-o"></i> Posted </p>
 	  <hr>
 	  <p> <%= $(body).text().slice(0, 200) %>  ...</p>
-	  <a class="btn btn-primary" id="read-more" href="">Read More <i class="fa fa-angle-right"></i></a>
+	  <a class="btn btn-primary" id="read-more" href="/blog/<%= _id %>">Read More <i class="fa fa-angle-right"></i></a>
 	  <hr>
     </script>
 
@@ -126,6 +126,7 @@
       <script src="/js/models/blog.js"></script>
       <script src="/js/collections/BlogList.js"></script>
       <script src="/js/views/nav.js"></script>
+      <script src="/js/views/blog.js"></script>
       <script src="/js/views/main.js"></script>
       <script src="/js/app.js"></script>
   </body>

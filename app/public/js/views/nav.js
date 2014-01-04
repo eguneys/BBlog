@@ -1,18 +1,17 @@
 var Content = Backbone.View.extend({
     initialize: function(options) {
-
 	this.routes = options.routes;
 	
-	Backbone.history.on('route', function(source,path) {
-	    this.render(path);
+	Backbone.history.on('route', function(source,path, params) {
+	    this.render(path, params);
 	}, this);
     },
 
     routes: {
     },
 
-    render: function(route) {
-	this.$el.html((new this.routes[route].view()).render().el);
+    render: function(route, params) {
+	this.$el.html((new this.routes[route].view(params)).render().el);
     }
 });
 
@@ -44,7 +43,7 @@ var Navbar = Backbone.View.extend({
 	for (var key in this.routes)
 	{
 	    if (!this.routes[key].hide)
-		this.$el.append(template({url: this.routes[key].route, visible: key, active: route === key ? 'active': ''}));
+		this.$el.append(template({url: this.routes[key].link, visible: key, active: route === key ? 'active': ''}));
 	}
     }
 });
