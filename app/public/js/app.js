@@ -39,7 +39,6 @@ $(document).ready(function () {
 
     new Navbar({el: $('#nav-item-container'), routes: NavigationRoutes});
     new Content({el:$('#container'), routes: NavigationRoutes});
-
-
+    
     Backbone.history.start({pushState: true});
 });

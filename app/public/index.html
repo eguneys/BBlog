@@ -2,9 +2,6 @@
   <head>
     <title>Simple Blog</title>
 
-    <meta http-equiv="Content-Type" content="text/html; charset=windows-1254">
-    <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-9">
-    <meta http_equiv="Content-Language" content="tr">
     <link href="/bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="/bower_components/font-awesome/css/font-awesome.min.css" rel="stylesheet">
   </head>
@@ -76,13 +73,11 @@
 	  </div>
 
 	  <div class="well">
-	    <h4>Popular Blog Categories</h4>
+	    <h4>Papers</h4>
 	    <div class="row">
 	      <div class="col-lg-6">
-		<ul class="list-unstyled">
-		  <li><a href="somestuff">some stuff</a></li>
-		  <li><a href="somestuff">some stuff</a></li>
-		  <li><a href="somestuff">some stuff</a></li>
+		<ul id="paper-list-container" class="list-unstyled">
+		  
 		</ul>
 	      </div>
 	    </div>
@@ -94,14 +89,28 @@
     </script>
 
     <script type='text/template' id='blog-template'>
-      <%= body %>
+      <div class="row">
+	<div class="col-lg-8">
+	      <h1 class="text-center"><%= title %> </h1>
+	      <div class="row">
+		<div class="col-md-1">
+		  <button class="btn btn-default"> <i class="fa fa-caret-up fa-2x"></i></button>
+		  <h2 class="text-center text-muted"> <%= votes.up - votes.down %> </h2>
+		  <button class="btn btn-default"> <i class="fa fa-caret-down fa-2x"></i></button>
+		</div>
+		<div class="col-md-11">
+		  <%= body %>
+		</div>
+	  </div>
+	</div>
+      </div>
     </script>
 
     <script type='text/template' id='blog-short-template'>
 	  <h1><%= title %></h1>
-	  <p class="lead"> by <a href="#"> <%= author.name %> </a></p>
+	  <p class="lead"> by <a href="#"> <%= author.name %> </a> - <a href="<%= paper.url %>"> <%= paper.name %> </a></p>
 	  <hr>
-	  <p> <i class="fa fa-clock-o"></i> Posted </p>
+	  <p> <i class="fa fa-clock-o"></i> Posted <abbr class="timeago" title="<%= date %>"></abbr> </p>
 	  <hr>
 	  <p> <%= $(body).text().slice(0, 200) %>  ...</p>
 	  <a class="btn btn-primary" id="read-more" href="/blog/<%= _id %>">Read More <i class="fa fa-angle-right"></i></a>
@@ -117,7 +126,9 @@
     </script>
 
 
+
       <script src="/bower_components/jquery/jquery.min.js"></script>
+      <script src="/bower_components/jquery-timeago/jquery.timeago.js"></script>
       <script src="/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
       <script src="/bower_components/underscore/underscore-min.js"></script>
       <script src="/bower_components/backbone/backbone-min.js"></script>
@@ -129,6 +140,7 @@
       <script src="/js/views/blog.js"></script>
       <script src="/js/views/main.js"></script>
       <script src="/js/app.js"></script>
+
   </body>
   
 </html>

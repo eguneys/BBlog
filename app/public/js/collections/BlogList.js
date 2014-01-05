@@ -19,6 +19,7 @@ var BlogList = Backbone.Collection.extend({
     },
     
     gotoPage: function(no) {
+	no = (isNaN(no))?this.currentPage:no;
 	this.currentPage = no - 0;
 	return this.fetch({reset: true, data: { skip: (this.currentPage - 1) * this.pageLimit, limit: this.pageLimit }});
     }

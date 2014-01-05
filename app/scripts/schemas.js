@@ -23,6 +23,8 @@ var journalSchema = mongoose.Schema({
 });
 
 
+var Journal = mongoose.model('journal', journalSchema);
+
 
 var MONGO_URI = process.env.MONGOHQ_URI || 'mongodb://localhost/test';
 
@@ -35,4 +37,14 @@ mongoose.model('journal', journalSchema);
 
 baucis.rest('blog');
 
-baucis.rest('journal');
+var controller = baucis.rest('journal');
+
+controller.get('/papers', function(request, response, next) {
+    Journal.distinct('paper.name', function(err, result) {
+	result = result.map(function (item) {
+	    return { name: item }
+	});
+
+	response.send(result);
+    });
+});
